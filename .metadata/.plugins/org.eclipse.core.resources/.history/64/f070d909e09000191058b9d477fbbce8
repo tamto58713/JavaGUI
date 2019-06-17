@@ -1,0 +1,84 @@
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
+public class LinearEquation {
+	// frame
+	JFrame frame = new JFrame("My Frame");
+	
+	// panel
+	JPanel panelBtn = new JPanel();
+	JPanel panelInput = new JPanel();
+	// label
+	JLabel labelA = new JLabel("A");
+	JLabel labelB = new JLabel("B");
+	JLabel labelResult = new JLabel("");
+	
+	// input
+	JTextField txtA = new JTextField();
+	JTextField txtB = new JTextField();
+	
+	
+	// button
+	JButton btnSolve = new JButton("Solve");
+	JButton btnContinue = new JButton("Continue");
+	JButton btnExit = new JButton("Exit");
+
+	public void buildLayout() {
+		// set Frame
+		frame.setSize(800, 500);
+		frame.setLocation(100, 100);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		frame.add(panelBtn, BorderLayout.SOUTH);
+		frame.add(panelInput, BorderLayout.NORTH);
+
+		//set Panel input
+		panelInput.setSize(10, 50);
+		panelBtn.setLocation(100, 100);
+		panelInput.setLayout(new GridLayout(3, 2));
+		panelInput.add(labelA);
+		panelInput.add(txtA);
+		panelInput.add(labelB);
+		panelInput.add(txtB);
+		panelInput.add(labelResult);
+		// set Panel button
+		panelBtn.setSize(800, 500);
+		panelBtn.setLocation(100, 100);
+		
+		panelBtn.setLayout(new GridLayout(1, 3));
+		panelBtn.add(btnSolve);
+		panelBtn.add(btnContinue);
+		panelBtn.add(btnExit);
+		
+		
+		// set input
+		
+		
+		// set button
+		btnSolve.addActionListener(new process());
+		btnContinue.addActionListener(new process());
+		btnExit.addActionListener(new process());
+		
+	}
+
+	class process implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			if (e.getSource() == btnExit) {
+				frame.dispose();
+				// System.exit(0);
+			}
+			else if (e.getSource() == btnSolve) {
+				int result = (-Integer.parseInt(txtB.getText())/Integer.parseInt(txtA.getText()));
+				labelResult.setText(.toSt);
+			}
+		}
+
+	}
+
+}
